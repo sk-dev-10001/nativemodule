@@ -17,9 +17,11 @@ class MainApplication : Application(), ReactApplication {
   override val reactNativeHost: ReactNativeHost =
       object : DefaultReactNativeHost(this) {
         override fun getPackages(): List<ReactPackage> {
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
-          return PackageList(this).packages
+            val packages: MutableList<ReactPackage> = PackageList(this).packages
+            // below MyAppPackage is added to the list of packages returned
+            // below MyAppPackage is added to the list of packages returned
+            packages.add(MyAppPackage())
+            return packages
         }
 
         override fun getJSMainModuleName(): String = "index"
